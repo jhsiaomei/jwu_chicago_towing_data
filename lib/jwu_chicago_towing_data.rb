@@ -1,4 +1,5 @@
 require "jwu_chicago_towing_data/version"
+require "unirest"
 
 module JwuChicagoTowingData
   class Car
@@ -21,7 +22,7 @@ module JwuChicagoTowingData
       create_array(data)
     end
 
-    def self.findn(input_parameter)
+    def self.find(input_parameter)
       data = Unirest.get("https://data.cityofchicago.org/resource/ygr5-vcbg.json?$q=#{input_parameter}").body
       create_array(data)
     end
